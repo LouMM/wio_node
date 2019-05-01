@@ -3,6 +3,15 @@
 ## Introduction
 The Grove PIR Motion Module has a driver that will fire and event when the motion is detected.
 
+## Code Description
+You can acquire the default project code for the ULB from your device using this link:
+https://us.wio.seeed.io/v1/cotf/project?access_token=[YourAccessToken]
+
+#### Response:
+```bash
+{"./Main.h": "#ifndef __MAIN_H__\r\n#define __MAIN_H__\r\n#include \"suli2.h\"\r\n#include \"grove_pir_motion_gen.h\"\r\n\r\nextern GrovePIRMotion *GrovePIRMotionD0_ins;\r\n#endif\r\n", "./Main.cpp": "#include \"wio.h\"\n#include \"suli2.h\"\n#include \"Main.h\"\n\nvoid setup()\n{\n}\n\nvoid loop()\n{\n\n}\n"}
+```
+
 ### Event Definition
 GrovePIRMotion	"GET /v1/node/GrovePIRMotionD0/approach -> uint8_t approach"
 "Event GrovePIRMotionD0 ir_moved"
@@ -27,7 +36,8 @@ Link: [ULB Guide by Seeed Studio](https://github.com/Seeed-Studio/Wio_Link/wiki/
 
 Essentially you can write code that runs every 100ms, captures any events from the Grove Module, in this case PIR, and runs some code.
 > ! this is not a complete code example, so don't copy/paste it.
-
+> !! Main.h is not included here that will have the extern GrovePIRMotion *GrovePIRMotionD0_ins; defined.
+#### Main.cpp
 ```cpp
 
 #include "wio.h"
@@ -67,7 +77,7 @@ Here is a sample of uploading the code to the OTA server using a pythonng
 
 ```bash
 $ ./ulb_helper.py set https://cn.wio.seeed.io 9bfc9a8c9c2c975bb4b770ca0fd088b1
-{'Main.cpp': '#include "wio.h"\n#include "suli2.h"\n#include "Main.h"\n\nuint32_t time;\nint light;\n\nvoid setup()\n{\n    time = millis();...', 'Main.h': '#ifndef __MAIN_H__\r\n#define __MAIN_H__\r\n#include "suli2.h"\r\n'}
+{"./Main.h": "#ifndef __MAIN_H__\r\n#define __MAIN_H__\r\n#include \"suli2.h\"\r\n#include \"grove_pir_motion_gen.h\"\r\n\r\nextern GrovePIRMotion *GrovePIRMotionD0_ins;\r\n#endif\r\n", "./Main.cpp": "#include \"wio.h\"\n#include \"suli2.h\"\n#include \"Main.h\"\n\nvoid setup()\n{\n}\n\nvoid loop()\n{\n\n}\n"}
 
 
 => Posting contents...
