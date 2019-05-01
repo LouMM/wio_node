@@ -62,7 +62,12 @@ void loop()
             if (strcmp(event.event_name, "ir_moved") == 0)
             {
                 uint8_t event_data = event.event_data.s8;
-                //Do something with event_data...
+                
+                //Post the data to an external event queue that can be picked up by a websocket
+                //http://seeed-studio.github.io/Wio_Link/#post-events
+                wio.postEvent(\"Motion_Detected\", event_data)
+                //This can than be picked up by a websocket http://seeed-studio.github.io/Wio_Link/#node-event-api-use-websocket
+                
             }           
         }
     }
