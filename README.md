@@ -21,7 +21,9 @@ static void pir_motion_interrupt_handler(void *para)
 ```
 
 ## Event Code
-You can upload code to the and use the ULB ( User Logic Block) feature of Wio Link. The ULB is a piece of code that can be uploaded to the OTA server of Wio and be compiled at the OTA server, then be OTA to the Wio board.
+You can upload code and use the ULB ( User Logic Block) feature of Wio Link. The ULB is a piece of code that can be uploaded to the OTA server of Wio and be compiled at the OTA server, then be OTA to the Wio board.
+
+Link: [ULB Guide by Seeed Studio](https://github.com/Seeed-Studio/Wio_Link/wiki/ULB-Guide)
 
 Essentially you can write code that runs every 100ms, captures any events from the Grove Module, in this case PIR, and runs some code.
 > ! this is not a complete code example, so don't copy/paste it.
